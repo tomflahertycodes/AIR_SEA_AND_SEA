@@ -13,7 +13,7 @@ class SeaplanesController < ApplicationController
   end
 
   def create
-    @seaplane = Seaplane.new(boat_params)
+    @seaplane = Seaplane.new(seaplane_params)
     if @seaplane.save
       redirect_to seaplanes_path(@seaplane)
     else
