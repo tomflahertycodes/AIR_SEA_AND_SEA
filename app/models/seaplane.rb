@@ -1,4 +1,4 @@
-class Boat < ApplicationRecord
+class Seaplane < ApplicationRecord
   #belongs_to :user
   validates :name, presence: true, length: { minimum: 2 }
   validates :description, presence: true, length: { maximum: 300 }
