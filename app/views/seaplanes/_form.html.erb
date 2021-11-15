@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="column text-center py-4 rounded">
+    <%= simple_form_for(@seaplane) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :location %>
+      <%= f.input :price %>
+      <%= f.input :category %>
+      <%= f.input :availability %>
+      <%= f.input :capacity %>
+      <%= f.submit class: "btn btn-primary rounded" %>
+    <% end %>
+  </div>
+</div>
