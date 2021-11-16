@@ -1,5 +1,6 @@
 class Seaplane < ApplicationRecord
-  # belongs_to :user
+  belongs_to :user
+  has_many :bookings
   validates :name, presence: true, length: { minimum: 2 }
   validates :description, presence: true, length: { maximum: 300 }
   validates :location, presence: true
