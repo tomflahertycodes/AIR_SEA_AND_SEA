@@ -4,7 +4,7 @@
 
 <div class="row justify-content-between">
   <% @seaplanes.each do |seaplane| %>
-    <div class="card col-sm-6 col-md-4 col-lg-3">
+    <div class="card col-sm-6 col-md-4 col-lg-3 m-1 p-0 rounded">
       <%= cl_image_tag seaplane.photo.key %>
         <div class="card-body">
           <h5 class="card-title"><%= seaplane.name %></h5>

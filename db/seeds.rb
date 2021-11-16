@@ -27,6 +27,5 @@ puts 'Creating 20 seaplane'
   image_url = "https://source.unsplash.com/random?sig=#{rand(1..10)}/&seaplane/800x600"
   file = URI.open(image_url)
   seaplane.photo.attach(io: file, filename: "#{seaplane.name.gsub(" ", "-")}.jpeg", content_type: 'image/jpeg')
-
 end
 puts 'Finished!'

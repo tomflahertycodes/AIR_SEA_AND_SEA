@@ -26,20 +26,28 @@
             <%= link_to "List your Seaplane", new_seaplane_path, class: "nav-link" %>
           </li>
           <% if user_signed_in? %>
+          <% if current_user.seaplanes.count > 0 %>
+            <li class="nav-item">
+              <%= link_to "My requests", my_requests_bookings_path, class: "nav-link" %>
+            </li>
+          <% end %>
+          <li class="nav-item">
+            <%= link_to "My bookings", my_bookings_bookings_path, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
               <%= current_user.user_name %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to 'Log out', 'users/sign_out', method: :delete, class: "dropdown-item" %>
+              <%= link_to 'Log out', '/users/sign_out', method: :delete, class: "dropdown-item" %>
             </div>
           </li>
           <% else %>
           <li class="nav-item">
-            <%= link_to 'Log in', 'users/sign_in', class: "nav-link" %>
+            <%= link_to 'Log in', '/users/sign_in', class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Sign up', 'users/sign_up', class: "nav-link" %>
+            <%= link_to 'Sign up', '/users/sign_up', class: "nav-link" %>
           </li>
           <% end %>
           </li>
