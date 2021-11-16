@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 2021_11_15_172546) do
     t.boolean "approved"
     t.date "start_date"
     t.date "end_date"
+  end
+
+  create_table "seaplanes", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "location"
+    t.integer "price"
+    t.string "category"
+    t.integer "availability"
+    t.integer "capacity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

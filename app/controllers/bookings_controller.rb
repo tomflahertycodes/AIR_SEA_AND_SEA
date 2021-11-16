@@ -1,21 +1,20 @@
 class BookingsController < ApplicationController
-  before_action :find_booking, only: [:approve!, :reject!]
+  before_action :find_booking, only: [:approve, :reject]
 
   def my_bookings
-    @user = current_user
-    @bookings = Booking.where(user_id: @user.id)
+    @bookings = Booking.where(user_id: current_user.id)
   end
 
   def my_requests
     @user = current_user
-    @bookings = Booking.where(seaplane.owner_id: @user.id)
+    @bookings = Booking.where(seaplane.owner_id: current_user.id)
   end
 
-  def approve!
+  def approve
     @booking.approved = true
   end
 
-  def reject!
+  def reject
     @booking.approved = false
   end
 

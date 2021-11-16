@@ -25,11 +25,23 @@
           <li class="nav-item">
             <a class="nav-link" href="#">List your Seaplane</a>
           </li>
+          <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+              <%= current_user.user_name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to 'Log out', 'users/sign_out', method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+          <% else %>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign up</a>
+            <%= link_to 'Log in', 'users/sign_in', class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log In</a>
+            <%= link_to 'Sign up', 'users/sign_up', class: "nav-link" %>
+          </li>
+          <% end %>
           </li>
         </ul>
       </div>
