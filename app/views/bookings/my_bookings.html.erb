@@ -1,0 +1,11 @@
+<h2>My bookings</h2>
+
+<% @bookings.each do |booking| %>
+  <div class="card-product">
+    <img src="https://source.unsplash.com/1600x900/?seaplane" />
+    <div class="card-product-infos">
+      <h2><%= booking.seaplane.name %></h2>
+      <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+    </div>
+  </div>
+<% end %>
