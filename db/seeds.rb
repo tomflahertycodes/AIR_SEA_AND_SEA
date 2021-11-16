@@ -5,10 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# require 'faker'
+require 'faker'
+Seaplane.destroy_all
 
 puts 'Creating 20 seaplane'
-100.times do
+20.times do
   seaplane = Seaplane.new(
     user_id: 1,
     name:         Faker::FunnyName.name,
@@ -19,8 +20,12 @@ puts 'Creating 20 seaplane'
     price:        rand(100..500),
     category:     ['Floatplanes', 'Flying boats', 'Amphibious aircraft'].sample,
     availability: ['Fly now!', 'Require specific license'].sample,
-    capacity:     rand(1..3),
+    capacity:     rand(1..3)
   )
   seaplane.save!
+
+  image_url = "https://source.unsplash.com/random?sig=#{rand(1..10)}/&seaplane/800x600"
+  file = URI.open(image_url)
+  seaplane.photo.attach(io: file, filename: "#{seaplane.name.gsub(" ", "-")}.jpeg", content_type: 'image/jpeg')
 end
 puts 'Finished!'

@@ -14,7 +14,8 @@ class SeaplanesController < ApplicationController
 
   def create
     @seaplane = Seaplane.new(seaplane_params)
-    if @seaplane.save
+    @seaplane.user_id = current_user.id
+    if @seaplane.save!
       redirect_to seaplanes_path(@seaplane)
     else
       render :new
@@ -44,6 +45,6 @@ class SeaplanesController < ApplicationController
   end
 
   def seaplane_params
-    params.require(:seaplane).permit(:name, :description, :location, :price, :category, :availability, :capacity)
+    params.require(:seaplane).permit(:name, :description, :location, :price, :category, :availability, :capacity, :photo)
   end
 end
