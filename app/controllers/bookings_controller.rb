@@ -21,11 +21,13 @@ class BookingsController < ApplicationController
   end
 
   def approve
-    @booking.approved = true
+    @booking.update(approved: true)
+    redirect_to my_requests_bookings_path
   end
 
   def reject
-    @booking.approved = false
+    @booking.update(approved: false)
+    redirect_to my_requests_bookings_path
   end
 
   private

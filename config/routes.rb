@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   resources :bookings, except: [:create] do
     member do
-      post :approve
-      post :reject
+      patch :approve
+      patch :reject
     end
     collection do
       get :my_bookings
