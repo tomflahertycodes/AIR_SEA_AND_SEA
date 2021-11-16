@@ -1,3 +1,5 @@
+<%= cl_image_tag @seaplane.photo.key, height: 300, width: 400, crop: :fill %>
+
 <h1><%= @seaplane.name %></h1>
 
 <h3><%= @seaplane.description %></h3>
@@ -10,4 +12,18 @@
 
 <p>This plane can hold a maximum of <%= @seaplane.capacity %></p>
 
-<%= link_to "back to all planes", seaplanes_path%>
+<h4>Book this seaplane!</h4>
+
+<% @booking = Booking.new %>
+
+<div class="container">
+  <div class="col-6 text-center py-4 rounded">
+    <%= simple_form_for [@seaplane, @booking] do |f| %>
+      <%= f.input :start_date, as: :date, order: [:day, :month, :year] %>
+      <%= f.input :end_date, as: :date, order: [:day, :month, :year] %>
+      <%= f.submit class: "btn btn-primary rounded" %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "back to all planes", seaplanes_path %>

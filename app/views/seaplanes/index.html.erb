@@ -4,15 +4,15 @@
 
 <div class="row justify-content-between">
   <% @seaplanes.each do |seaplane| %>
-    <div class="card col-sm-6 col-md-4 col-lg-3">
-      <img src="https://source.unsplash.com/1600x900/?seaplane" class="card-img-top" alt="an image of a seaplane">
-      <div class="card-body">
-        <h5 class="card-title"><%= seaplane.name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted">£<%= seaplane.price %> <%= seaplane.location %></h6>
-        <h6 class="card-subtitle mb-2 text-muted"><%= seaplane.capacity %> people max</h6>
-        <p class="card-text"><%= seaplane.description %></p>
-        <%= link_to "view details", seaplane_path(seaplane) %>
-      </div>
+    <div class="card col-sm-6 col-md-4 col-lg-3 m-1 p-0 rounded">
+      <%= cl_image_tag seaplane.photo.key %>
+        <div class="card-body">
+          <h5 class="card-title"><%= seaplane.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">£<%= seaplane.price %> <%= seaplane.location %></h6>
+          <h6 class="card-subtitle mb-2 text-muted"><%= seaplane.capacity %> people max</h6>
+          <p class="card-text"><%= seaplane.description %></p>
+          <%= link_to "view details", seaplane_path(seaplane) %>
+        </div>
     </div>
   <% end %>
 </div>

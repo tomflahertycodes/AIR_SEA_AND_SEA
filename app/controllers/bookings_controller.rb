@@ -1,17 +1,14 @@
 class BookingsController < ApplicationController
   before_action :find_booking, only: [:approve, :reject]
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
-    @seaplane = Seaplane.find(params[:id])
     @booking = Booking.new(booking_params)
+    @booking.seaplane_id = params[:seaplane_id]
+    @booking.user = current_user
     if @booking.save!
       redirect_to seaplanes_path(@seaplane)
     else
-      redirect_to bookings_path
+
     end
   end
 
@@ -20,16 +17,17 @@ class BookingsController < ApplicationController
   end
 
   def my_requests
-    @user = current_user
-    # @bookings = Booking.where(seaplane.user_id: current_user.id)
+    @bookings = Booking.all
   end
 
   def approve
-    @booking.approved = true
+    @booking.update(approved: true)
+    redirect_to my_requests_bookings_path
   end
 
   def reject
-    @booking.approved = false
+    @booking.update(approved: false)
+    redirect_to my_requests_bookings_path
   end
 
   private
