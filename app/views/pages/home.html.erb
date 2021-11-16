@@ -1,16 +1,25 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Find the seaplane for you!</h1>
 
-<form action="/pages/search" method="get">
-  <label for="category">Category:</label>
-  <input type="text" id="category" name="category"><br><br>
-  <label for="price">Price:</label>
-  <input type="integer" id="price" name="price"><br><br>
-  <input type="submit" value="Submit">
-</form>
+<%= simple_form_for :search, url: pages_search_path, method: "GET" do |f| %>
+  <%= f.input :category, collection: @seaplane_category, label: "seaplane category" %>
+  <%= f.input :price, label: "maximum price per day" %>
+  <%= f.input :capacity, label: "number of passegners" %>
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
 
 <% if @seaplanes %>
-  <% @seaplanes.each do |seaplane| %>
-    <p><%= seaplane.name %></p>
-  <% end %>
+  <div class="row justify-content-between mt-3">
+    <% @seaplanes.each do |seaplane| %>
+      <div class="card col-sm-6 col-md-4 col-lg-3 p-0 m-1 rounded">
+        <img src="https://source.unsplash.com/1600x900/?seaplane" class="card-img-top" alt="an image of a seaplane">
+        <div class="card-body">
+          <h5 class="card-title"><%= seaplane.name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted">£<%= seaplane.price %> <%= seaplane.location %></h6>
+          <h6 class="card-subtitle mb-2 text-muted"><%= seaplane.capacity %> people max</h6>
+          <p class="card-text"><%= seaplane.description %></p>
+          <%= link_to "view details", seaplane_path(seaplane) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <% end %>
