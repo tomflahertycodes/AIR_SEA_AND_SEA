@@ -1,2 +1,16 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+<form action="/pages/search" method="get">
+  <label for="category">Category:</label>
+  <input type="text" id="category" name="category"><br><br>
+  <label for="price">Price:</label>
+  <input type="integer" id="price" name="price"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+<% if @seaplanes %>
+  <% @seaplanes.each do |seaplane| %>
+    <p><%= seaplane.name %></p>
+  <% end %>
+<% end %>
