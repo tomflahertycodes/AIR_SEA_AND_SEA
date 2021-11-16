@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="col-6 text-center py-4 rounded">
+    <%= simple_form_for(@booking) do |f| %>
+      <%= f.input :start_date, as: :date, order: [:day, :month, :year] %>
+      <%= f.input :end_date, as: :date, order: [:day, :month, :year] %>
+      <%= f.submit "Request booking", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
