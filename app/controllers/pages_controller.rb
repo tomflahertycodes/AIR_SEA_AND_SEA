@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     capacity_query = params[:search][:capacity]
     @seaplanes = Seaplane.where(category: category_query)
     @seaplanes = @seaplanes.where("price <= ?", price_query)
-    @seaplane = @seaplanes.where("capacity >= ?", capacity_query)
+    @seaplanes = @seaplanes.where("capacity >= ?", capacity_query)
     render :home
   end
 end
