@@ -1,7 +1,13 @@
-<%= @seaplane.name %>
-<%= @seaplane.description %>
-<%= @seaplane.location %>
-<%= @seaplane.price %>
-<%= @seaplane.category %>
-<%= @seaplane.availability %>
-<%= @seaplane.capacity %>
+<h1><%= @seaplane.name %></h1>
+
+<h3><%= @seaplane.description %></h3>
+
+<p>This is a <%= @seaplane.category %></p>
+
+<p>You can find the plane at <%= @seaplane.location %></p>
+
+<p>You can rent this plane for <%= @seaplane.price %></p>
+
+<p>This plane can hold a maximum of <%= @seaplane.capacity %></p>
+
+<%= link_to "back to all planes", seaplanes_path%>
