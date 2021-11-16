@@ -5,6 +5,5 @@ class Seaplane < ApplicationRecord
   validates :location, presence: true
   validates :price, presence: true, numericality: { only_integer: true }
   validates :category, presence: true #(to be implemented)
-  validates :availability, presence: true
   validates :capacity, presence: true, numericality: { only_integer: true }, inclusion: { in: 1..6 }
 end
