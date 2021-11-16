@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :seaplanes
+  resources :seaplanes do
+    resources :bookings, only: [:create]
+  end
   devise_for :users
   root to: 'pages#home'
 
-  resources :bookings do
+  resources :bookings, except: [:create] do
     member do
       post :approve
       post :reject

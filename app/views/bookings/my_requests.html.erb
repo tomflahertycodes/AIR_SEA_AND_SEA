@@ -1,0 +1,15 @@
+<h2>Requests for bookings</h2>
+<% @bookings.each do |booking| %>
+  <% if booking.seaplane.user_id == current_user.id && booking.start_date.strftime('%d/%m/%Y') > Date.today.strftime('%d/%m/%Y') %>
+    <div class="card-product">
+      <img src="https://source.unsplash.com/1600x900/?seaplane" />
+      <div class="card-product-infos">
+        <h2><%= booking.user.user_name %> has requested to book <%= booking.seaplane.name %> from <%= booking.start_date.strftime('%d/%m/%Y') %> until <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+        <%= link_to 'Approve', approve_booking_path(booking), class: "btn btn-primary" %>
+        <%= link_to 'Reject', reject_booking_path(booking), class: "btn btn-danger" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+
+<h2>Upcoming bookings</h2>

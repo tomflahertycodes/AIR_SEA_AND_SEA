@@ -1,13 +1,23 @@
 class BookingsController < ApplicationController
   before_action :find_booking, only: [:approve, :reject]
 
+  def create
+    @booking = Booking.new(booking_params)
+    @booking.seaplane_id = params[:seaplane_id]
+    @booking.user = current_user
+    if @booking.save!
+      redirect_to seaplanes_path(@seaplane)
+    else
+
+    end
+  end
+
   def my_bookings
     @bookings = Booking.where(user_id: current_user.id)
   end
 
   def my_requests
-    @user = current_user
-    @bookings = Booking.where(seaplane.owner_id: current_user.id)
+    @bookings = Booking.all
   end
 
   def approve
@@ -22,5 +32,9 @@ class BookingsController < ApplicationController
 
   def find_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :seaplane_id, :user_id)
   end
 end
