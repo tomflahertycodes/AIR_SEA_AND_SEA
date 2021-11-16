@@ -12,6 +12,43 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Air Sea & Sea</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Rent a Seaplane</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">List your Seaplane</a>
+          </li>
+          <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+              <%= current_user.user_name %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to 'Log out', 'users/sign_out', method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+          <% else %>
+          <li class="nav-item">
+            <%= link_to 'Log in', 'users/sign_in', class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Sign up', 'users/sign_up', class: "nav-link" %>
+          </li>
+          <% end %>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <%= yield %>
+    </div>
   </body>
 </html>
