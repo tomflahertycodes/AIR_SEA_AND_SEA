@@ -12,6 +12,9 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @bookings = Booking.where(user_id: current_user.id)
+    @approved_bookings = @bookings.where(approved: true)
+    @rejected_bookings = @bookings.where(approved: false)
+    @pending_bookings = @bookings.where(approved: nil)
   end
 
   def my_requests
