@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.seaplane_id = params[:seaplane_id]
     @booking.user = current_user
     if @booking.save!
-      redirect_to seaplanes_path(@seaplane)
+      redirect_to my_bookings_bookings_path
     end
   end
 
