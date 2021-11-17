@@ -1,23 +1,30 @@
-<h1>Find the seaplane for you!</h1>
 
-<%= simple_form_for :search, url: pages_search_path, method: "GET" do |f| %>
-  <%= f.input :category, collection: @seaplane_category, label: "seaplane category" %>
-  <%= f.input :price, label: "maximum price per day" %>
-  <%= f.input :capacity, label: "number of passengers" %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
+<img src="https://images.unsplash.com/photo-1574960931430-27eb5b9ee478?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=900&ixid=MnwxfDB8MXxyYW5kb218MHx8c2VhcGxhbmV8fHx8fHwxNjM3MTg1MDE2&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1600" class="bg-image shadow-2-strong" id="bg" alt="an image of a seaplane">
+
+<div class="form-container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for :search, url: pages_search_path, method: "GET" do |f| %>
+        <%= f.input :category, collection: @seaplane_category, placeholder: "seaplane category",label: false, class: "boxrounded" %>
+        <%= f.input :price, placeholder: "maximum price per day",label: false, class: "boxrounded" %>
+        <%= f.input :capacity, placeholder: "number of passengers", label: false, class: "boxrounded" %>
+        <%= f.submit "Search", class: "btn btn-ghost" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <% if @seaplanes %>
-  <div class="row justify-content-between mt-3">
+  <div class="row justify-content-between mt-3" id="cardhome">
     <% @seaplanes.each do |seaplane| %>
-      <div class="card col-sm-6 col-md-4 col-lg-3 p-0 m-1 rounded">
-        <img src="https://source.unsplash.com/1600x900/?seaplane" class="card-img-top" alt="an image of a seaplane">
+      <div class="card col-sm-6 col-md-4 col-lg-3 p-0 m-1" id="singlecard">
+        <img src="https://source.unsplash.com/1600x900/?seaplane" class="card-img-top" alt="an image of a seaplane" id="singleimg">
         <div class="card-body">
-          <h5 class="card-title"><%= seaplane.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">£<%= seaplane.price %> <%= seaplane.location %></h6>
-          <h6 class="card-subtitle mb-2 text-muted"><%= seaplane.capacity %> people max</h6>
-          <p class="card-text"><%= seaplane.description %></p>
-          <%= link_to "view details", seaplane_path(seaplane) %>
+          <h5 class="card-title"><%= seaplane.name %></h5><br>
+          <h6 class="card-subtitle mb-2 text-muted"><strong>£<%= seaplane.price %></strong> <%= seaplane.location %></h6><br>
+          <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-user-friends"> <%= seaplane.capacity %></h6></i><br>
+          <em class="card-text"><%= seaplane.description %></em><br><br>
+          <%= link_to "view details", seaplane_path(seaplane), class: "btn btn-outline-success btn-sm" %>
         </div>
       </div>
     <% end %>
