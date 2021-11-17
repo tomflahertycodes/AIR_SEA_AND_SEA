@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_11_16_151114) do
     t.integer "capacity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_seaplanes_on_user_id"
   end
 

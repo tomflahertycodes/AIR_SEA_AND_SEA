@@ -18,3 +18,9 @@ require("channels")
 
 import "controllers"
 import "bootstrap"
+import { datePicker } from '../plugins/init_flatpickr'
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  datePicker();
+});

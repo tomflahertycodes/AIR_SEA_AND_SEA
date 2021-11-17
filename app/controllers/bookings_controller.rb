@@ -6,18 +6,24 @@ class BookingsController < ApplicationController
     @booking.seaplane_id = params[:seaplane_id]
     @booking.user = current_user
     if @booking.save!
-      redirect_to seaplanes_path(@seaplane)
-    else
-
+      redirect_to my_bookings_bookings_path
     end
   end
 
   def my_bookings
     @bookings = Booking.where(user_id: current_user.id)
+    @approved_bookings = @bookings.where(approved: true)
+    @rejected_bookings = @bookings.where(approved: false)
+    @pending_bookings = @bookings.where(approved: nil)
   end
 
   def my_requests
     @bookings = Booking.all
+    @owner_bookings = @bookings.select do |booking|
+      booking.seaplane.user_id == current_user.id && booking.start_date.strftime('%d/%m/%Y') > Date.today.strftime('%d/%m/%Y')
+    end
+    @active_requests = @owner_bookings.select { |b| b.approved = nil }
+    @upcoming_bookings = @owner_bookings.select { |b| b.approved = true }
   end
 
   def approve

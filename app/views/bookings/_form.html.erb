@@ -3,7 +3,7 @@
     <%= simple_form_for(@booking) do |f| %>
       <%= f.input :start_date, as: :date, order: [:day, :month, :year] %>
       <%= f.input :end_date, as: :date, order: [:day, :month, :year] %>
-      <%= f.submit class: "btn btn-primary rounded" %>
+      <%= f.submit "Request booking", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
