@@ -19,6 +19,11 @@ class BookingsController < ApplicationController
 
   def my_requests
     @bookings = Booking.all
+    @owner_bookings = @bookings.select do |booking|
+      booking.seaplane.user_id == current_user.id && booking.start_date.strftime('%d/%m/%Y') > Date.today.strftime('%d/%m/%Y')
+    end
+    @active_requests = @owner_bookings.select { |b| b.approved = nil }
+    @upcoming_bookings = @owner_bookings.select { |b| b.approved = true }
   end
 
   def approve
