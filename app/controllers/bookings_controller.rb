@@ -7,8 +7,6 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save!
       redirect_to seaplanes_path(@seaplane)
-    else
-
     end
   end
 
