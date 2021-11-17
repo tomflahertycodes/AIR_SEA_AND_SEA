@@ -8,8 +8,8 @@
       <h4>Book this seaplane!</h4>
       <%# if current_user.id != @seaplane.user_id  %>
         <%= simple_form_for([@seaplane, @booking]) do |f| %>
-            <%= f.input :start_date, as: :string, type: :text %>
-            <%= f.input :end_date, as: :string, type: :text %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
             <%= f.submit "Book", class: "btn btn-primary" %>
           <% end %>
       <%# end %>
