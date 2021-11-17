@@ -1,4 +1,6 @@
-<h2>Requests for bookings</h2>
+<% if @active_requests.count > 0 %>
+  <h2>Requests for bookings</h2>
+<% end %>
 <% @active_requests.each do |booking| %>
   <div class="card-product">
     <%= cl_image_tag booking.seaplane.photo.key %>
@@ -10,7 +12,9 @@
   </div>
 <% end %>
 
-<h2>Upcoming bookings</h2>
+<% if @upcoming_bookings.count > 0 %>
+  <h2>Upcoming bookings</h2>
+<% end %>
 <% @upcoming_bookings.each do |booking| %>
   <div class="card-product">
     <%= cl_image_tag booking.seaplane.photo.key %>
