@@ -3,7 +3,7 @@
 <%= simple_form_for :search, url: pages_search_path, method: "GET" do |f| %>
   <%= f.input :category, collection: @seaplane_category, label: "seaplane category" %>
   <%= f.input :price, label: "maximum price per day" %>
-  <%= f.input :capacity, label: "number of passegners" %>
+  <%= f.input :capacity, label: "number of passengers" %>
   <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
 

@@ -18,7 +18,7 @@ puts 'Creating 20 seaplane'
                   the most spectacular landscapes in the World !",
     location:     Faker::Address.city,
     price:        rand(100..500),
-    category:     ['Floatplanes', 'Flying boats', 'Amphibious aircraft'].sample,
+    category:     ['Floatplane', 'Flying boat', 'Amphibious aircraft'].sample,
     availability: ['Fly now!', 'Require specific license'].sample,
     capacity:     rand(1..3)
   )
