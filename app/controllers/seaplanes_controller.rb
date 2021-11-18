@@ -12,6 +12,7 @@ class SeaplanesController < ApplicationController
         lat: seaplane.latitude,
         lng: seaplane.longitude
       }
+    end
   end
 
   def show
