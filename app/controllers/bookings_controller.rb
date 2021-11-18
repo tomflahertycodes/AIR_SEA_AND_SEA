@@ -12,9 +12,11 @@ class BookingsController < ApplicationController
 
   def my_bookings
     @bookings = Booking.where(user_id: current_user.id)
-    @approved_bookings = @bookings.where(approved: true)
-    @rejected_bookings = @bookings.where(approved: false)
-    @pending_bookings = @bookings.where(approved: nil)
+    @future_bookings = @bookings.select { |b| b.start_date >= Date.today }
+    @approved_bookings = @future_bookings.select { |b| b.approved? }
+    @rejected_bookings = @future_bookings.select { |b| b.approved == false }
+    @pending_bookings = @future_bookings.select { |b| b.approved.nil? }
+    @past_bookings = @bookings.select { |b| b.start_date < Date.today && b.approved }
   end
 
   def my_requests
