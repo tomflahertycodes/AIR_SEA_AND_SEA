@@ -9,6 +9,7 @@
     "bootstrap": "4.6",
     "flatpickr": "^4.6.9",
     "jquery": "^3.6.0",
+    "mapbox-gl": "^2.6.0",
     "jquery-bar-rating": "^1.2.2",
     "popper.js": "^1.16.1",
     "stimulus": "^3.0.1",
