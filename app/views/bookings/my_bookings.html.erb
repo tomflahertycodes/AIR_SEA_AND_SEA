@@ -1,3 +1,5 @@
+<img src="https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-sexy-blue.png" class="bg-image shadow-2-strong" id="bg" alt="an image of a seaplane">
+
 <h2>My bookings</h2>
 
 <% if @pending_bookings.count > 0 %>
@@ -5,7 +7,7 @@
 <% end %>
 <% @pending_bookings.each do |booking| %>
   <div class="card-product">
-    <%= cl_image_tag booking.seaplane.photo.key %>
+    <%= cl_image_tag booking.seaplane.photo.key, width: "200px", height: "200px" %>
     <div class="card-product-infos">
       <h2><%= booking.seaplane.name %></h2>
       <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>

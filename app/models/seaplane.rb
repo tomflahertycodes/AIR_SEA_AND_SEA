@@ -8,6 +8,8 @@ class Seaplane < ApplicationRecord
   validates :price, presence: true, numericality: { only_integer: true }
   validates :category, presence: true #(to be implemented)
   validates :capacity, presence: true, numericality: { only_integer: true }, inclusion: { in: 1..6 }
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|

@@ -3,6 +3,12 @@ class SeaplanesController < ApplicationController
 
   def index
     @seaplanes = Seaplane.all
+    @markers = @seaplanes.geocoded.map do |seaplane|
+      {
+        lat: seaplane.latitude,
+        lng: seaplane.longitude
+      }
+    end
   end
 
   def show

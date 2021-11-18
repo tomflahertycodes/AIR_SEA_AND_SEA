@@ -2,12 +2,14 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&family=Poppins:ital,wght@1,200;1,300;1,600&display=swap');
 
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import 'flatpickr/dist/flatpickr';
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import 'mapbox-gl/dist/mapbox-gl';
 
 // Your CSS partials
 @import "components/index";

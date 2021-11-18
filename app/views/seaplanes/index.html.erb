@@ -1,17 +1,24 @@
-<h1>Find your perfect seaplane today</h1>
+<img src="https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-sexy-blue.png" class="bg-image shadow-2-strong" id="bg" alt="an image of a seaplane">
+
+<h1 class="text-center text-white pt-5">Find your perfect seaplane today</h1>
 
 <%# pending task on this file is to add cloudinary image tag at seaplane, at this stage we can just have a placeholder %>
 
-<div class="row justify-content-between">
+<div class="row justify-content-between mt-3" id="cardhome">
+<div style="width: 100%; height: 600px;"
+  data-controller="mapbox"
+  data-mapbox-markers-value="<%= @markers.to_json %>"
+  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY']%>"></div>
   <% @seaplanes.each do |seaplane| %>
-    <div class="card col-sm-6 col-md-4 col-lg-3 m-1 p-0 rounded">
-      <%= cl_image_tag seaplane.photo.key %>
+    <div class="card col-sm-6 col-md-4 col-lg-3 p-0 m-1" id="singlecard">
+      <% if seaplane.photo.attached? %>
+      <%= cl_image_tag seaplane.photo.key, class: "singleimg" %>
+        <% end %>
         <div class="card-body">
-          <h5 class="card-title"><%= seaplane.name %></h5>
-          <h6 class="card-subtitle mb-2 text-muted">£<%= seaplane.price %> <%= seaplane.location %></h6>
-          <h6 class="card-subtitle mb-2 text-muted"><%= seaplane.capacity %> people max</h6>
-          <p class="card-text"><%= seaplane.description %></p>
-          <%= link_to "View Details", seaplane_path(seaplane) %>
+          <h6 class="card-subtitle mb-2 text-muted"><strong>£<%= seaplane.price %></strong> <%= seaplane.location %></h6><br>
+          <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-user-friends"> <%= seaplane.capacity %></h6></i><br>
+          <em class="card-text"><%= seaplane.description %></em><br><br>
+          <%= link_to "view details", seaplane_path(seaplane), class: "btn btn-outline-success btn-sm" %>
         </div>
     </div>
   <% end %>
