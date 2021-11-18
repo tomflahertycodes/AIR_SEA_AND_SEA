@@ -5,7 +5,7 @@
 <%# pending task on this file is to add cloudinary image tag at seaplane, at this stage we can just have a placeholder %>
 
 <div class="form-container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center ">
     <div class="col-12 col-md-8">
       <%= form_tag seaplanes_path, method: :get do %>
         <%= text_field_tag :query,
@@ -13,7 +13,7 @@
           class: "form-control",
           placeholder: "Write a name or location"
         %>
-        <%= submit_tag "Search", class: "btn btn-ghost mt-4" %>
+        <%= submit_tag "Search", class: "btn btn-ghost mt-5" %>
       <% end %>
     </div>
   </div>
