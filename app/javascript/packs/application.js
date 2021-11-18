@@ -19,8 +19,9 @@ require("channels")
 import "controllers"
 import "bootstrap"
 import { datePicker } from '../plugins/init_flatpickr'
+import { initStarRating } from '../plugins/init_star_rating';
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your JS functions here
   datePicker();
+  initStarRating();
 });

@@ -1,40 +1,60 @@
-<h2>My bookings</h2>
+<img src="https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-sexy-blue.png" class="bg-image shadow-2-strong" id="bg" alt="an image of a seaplane">
+
+<h2 class="text-white">My bookings</h2>
 
 <% if @pending_bookings.count > 0 %>
-  <h4><em>Pending</em></h4>
+  <h4 class="text-white"><em>Pending</em></h4>
 <% end %>
+
 <% @pending_bookings.each do |booking| %>
   <div class="card-product">
-    <%= cl_image_tag booking.seaplane.photo.key %>
+    <%= cl_image_tag booking.seaplane.photo.key, width: "200px", height: "200px" %>
     <div class="card-product-infos">
-      <h2><%= booking.seaplane.name %></h2>
+      <h2><%= link_to "#{booking.seaplane.name}", seaplane_path(booking.seaplane) %></h2>
       <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
     </div>
   </div>
 <% end %>
 
 <% if @approved_bookings.count > 0 %>
-  <h4><strong>Accepted</strong></h4>
+  <h4 class="text-white"><strong>Accepted</strong></h4>
 <% end %>
 <% @approved_bookings.each do |booking| %>
   <div class="card-product">
     <%= cl_image_tag booking.seaplane.photo.key %>
     <div class="card-product-infos">
-      <h2><%= booking.seaplane.name %></h2>
+      <h2><%= link_to "#{booking.seaplane.name}", seaplane_path(booking.seaplane) %></h2>
       <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
     </div>
   </div>
 <% end %>
 
 <% if @rejected_bookings.count > 0 %>
-  <h4>Rejected</h4>
+  <h4 class="text-white">Rejected</h4>
 <% end %>
 <% @rejected_bookings.each do |booking| %>
   <div class="card-product">
     <%= cl_image_tag booking.seaplane.photo.key %>
     <div class="card-product-infos">
-      <h2><%= booking.seaplane.name %></h2>
+      <h2><%= link_to "#{booking.seaplane.name}", seaplane_path(booking.seaplane) %></h2>
       <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+    </div>
+  </div>
+<% end %>
+
+<% if @past_bookings.count > 0 %>
+  <h4 class="text-white">Past bookings</h4>
+<% end %>
+<% @past_bookings.each do |booking| %>
+  <div class="card-product">
+    <%= cl_image_tag booking.seaplane.photo.key %>
+    <div class="card-product-infos">
+      <h2><<%= link_to "#{booking.seaplane.name}", seaplane_path(booking.seaplane) %> (<%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %>)</h2>
+      <% if booking.review %>
+        <p>You gave <%= booking.seaplane.name %> <%= booking.review.rating %> stars </p>
+      <% else %>
+        <p>How was your trip on <%= booking.seaplane.name %>? Don't forget to <%= link_to "leave a review", new_booking_review_path(booking) %>!</p>
+      <% end %>
     </div>
   </div>
 <% end %>

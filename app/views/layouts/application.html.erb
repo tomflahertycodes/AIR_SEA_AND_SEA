@@ -12,8 +12,8 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <a class="navbar-brand" href="#">Air Sea & Sea</a>
+    <nav class="navbar navbar-expand-lg navbar-dark p-4 navbar-lewagon" id="navhome">
+      <%= link_to (image_tag("logo.png", alt:"AirSea&Sea", style:"width: 90px")), root_path%>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -59,7 +59,7 @@
       <%= yield %>
     </div>
 
-    <div class="footer">
+    <div class="footer" id="footerhome">
       <div class="footer-links">
         <a href="#"><i class="fab fa-github"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>

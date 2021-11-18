@@ -1,3 +1,9 @@
+.btn-outline-success {
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 8px 40px;
+}
+
 .card-product {
   overflow: hidden;
   height: 120px;
@@ -5,7 +11,36 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
-  margin: 15px auto;
+  margin: 10px auto 15px auto;
+}
+
+#cardhome {
+  padding-top: 150px;
+  padding-bottom: 100px;
+  gap: 60px;
+}
+
+#singlecard{
+  border: 2px white;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  text-align: center;
+  gap: 2px;
+}
+
+.singleimg {
+  border-radius: 10px;
+  box-shadow: 0px 2px 0px;
+  max-height: 160px;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
 }
 
 .card-product img {

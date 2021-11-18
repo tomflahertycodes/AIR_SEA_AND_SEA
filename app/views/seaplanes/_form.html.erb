@@ -1,15 +1,18 @@
-<div class="container">
-  <div class="column text-center py-4 rounded">
-    <%= simple_form_for(@seaplane) do |s| %>
-      <%= s.input :name %>
-      <%= s.input :description %>
-      <%= s.input :location %>
-      <%= s.input :price %>
-      <%= s.input :category %>
-      <%= s.input :availability %>
-      <%= s.input :capacity %>
-      <%= s.input :photo, as: :file %>
-      <%= s.submit class: "btn btn-primary rounded" %>
-    <% end %>
+<img src="https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-sexy-blue.png" class="bg-image shadow-2-strong" id="bg" alt="an image of a seaplane">
+
+<div class="form-container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <%= simple_form_for(@seaplane) do |s| %>
+        <%= s.input :name, placeholder: "Name", label: false%>
+        <%= s.input :description, placeholder: "Description",label: false%>
+        <%= s.input :location, placeholder: "Location",label: false %>
+        <%= s.input :price, placeholder: "Price",label: false %>
+        <%= s.input :category, placeholder: "Category",label: false %>
+        <%= s.input :capacity, placeholder: "Capacity",label: false %>
+        <%= s.input :photo, as: :file, label: false%>
+        <%= s.submit class: "btn btn-ghost" %>
+      <% end %>
+    </div>
   </div>
 </div>
