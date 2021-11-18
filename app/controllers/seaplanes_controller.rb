@@ -7,6 +7,11 @@ class SeaplanesController < ApplicationController
     else
       @seaplanes = Seaplane.all
     end
+    @markers = @seaplanes.geocoded.map do |seaplane|
+      {
+        lat: seaplane.latitude,
+        lng: seaplane.longitude
+      }
   end
 
   def show

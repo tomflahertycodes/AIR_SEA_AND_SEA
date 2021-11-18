@@ -3,7 +3,9 @@
 <div class="container d-flex justify-content-between mt-5 mb-5">
   <div class="row">
     <div class="col-6"></div>
-      <%= cl_image_tag @seaplane.photo.key, height: 300, width: 400, crop: :fill %>
+      <% if @seaplane.photo.attached? %>
+        <%= cl_image_tag @seaplane.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
     </div>
     <% @booking = Booking.new %>
     <div class="col-4" id='seaplane-booking-dates' data-unavailable="<%= @seaplane.unavailable_dates.to_json %>">
@@ -32,10 +34,12 @@
   <h4>Reviews for <%= @seaplane.name %>:</h4>
   <%# if @seaplane.bookings%>
   <% @seaplane.bookings.each do |booking| %>
-    <p><% booking.review.rating.to_i.times do  %>
-      <i class="far fa-star"></i>
+    <% if booking.review %>
+      <p><% booking.review.rating.to_i.times do  %>
+        <i class="far fa-star"></i>
+      <% end %>
+      "<%= booking.review.comment %>"</li>
     <% end %>
-    "<%= booking.review.comment %>"</li>
   <% end %></p>
   <%= link_to "back to all planes", seaplanes_path %>
 </div>
