@@ -32,7 +32,7 @@
   <h4>Reviews for <%= @seaplane.name %>:</h4>
   <%# if @seaplane.bookings%>
   <% @seaplane.bookings.each do |booking| %>
-    <% if booking.review%>
+    <% if booking.review %>
       <p><% booking.review.rating.to_i.times do  %>
         <i class="far fa-star"></i>
       <% end %>
