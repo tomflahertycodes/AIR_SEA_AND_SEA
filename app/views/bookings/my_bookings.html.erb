@@ -2,41 +2,45 @@
 
 <h2>My bookings</h2>
 
-<% if @pending_bookings.count > 0 %>
-  <h4><em>Pending</em></h4>
-<% end %>
-<% @pending_bookings.each do |booking| %>
-  <div class="card-product">
-    <%= cl_image_tag booking.seaplane.photo.key, width: "200px", height: "200px" %>
-    <div class="card-product-infos">
-      <h2><%= booking.seaplane.name %></h2>
-      <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
-    </div>
-  </div>
-<% end %>
+<div data-controller="booking" data-action="booking#alert">
+  <% if @pending_bookings.count > 0 %>
+    <h4><em>Pending</em></h4>
+  <% end %>
 
-<% if @approved_bookings.count > 0 %>
-  <h4><strong>Accepted</strong></h4>
-<% end %>
-<% @approved_bookings.each do |booking| %>
-  <div class="card-product">
-    <%= cl_image_tag booking.seaplane.photo.key %>
-    <div class="card-product-infos">
-      <h2><%= booking.seaplane.name %></h2>
-      <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+  <% @pending_bookings.each do |booking| %>
+    <div class="card-product">
+      <div data-booking-target="source">booking</div>
+      <%= cl_image_tag booking.seaplane.photo.key, width: "200px", height: "200px" %>
+      <div class="card-product-infos">
+        <h2><%= booking.seaplane.name %></h2>
+        <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 
-<% if @rejected_bookings.count > 0 %>
-  <h4>Rejected</h4>
-<% end %>
-<% @rejected_bookings.each do |booking| %>
-  <div class="card-product">
-    <%= cl_image_tag booking.seaplane.photo.key %>
-    <div class="card-product-infos">
-      <h2><%= booking.seaplane.name %></h2>
-      <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+  <% if @approved_bookings.count > 0 %>
+    <h4><strong>Accepted</strong></h4>
+  <% end %>
+  <% @approved_bookings.each do |booking| %>
+    <div class="card-product">
+      <%= cl_image_tag booking.seaplane.photo.key %>
+      <div class="card-product-infos">
+        <h2><%= booking.seaplane.name %></h2>
+        <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+
+  <% if @rejected_bookings.count > 0 %>
+    <h4>Rejected</h4>
+  <% end %>
+  <% @rejected_bookings.each do |booking| %>
+    <div class="card-product">
+      <%= cl_image_tag booking.seaplane.photo.key %>
+      <div class="card-product-infos">
+        <h2><%= booking.seaplane.name %></h2>
+        <p><%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
