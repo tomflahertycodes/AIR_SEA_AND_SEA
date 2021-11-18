@@ -1,17 +1,37 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: blue;
-  font-family:Arial, Helvetica, sans-serif
-}
-
-#navhome {
-  opacity: 0.5;
+  background: rgba(120, 120, 120, 0.4);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.nav-link {
+  color: white !important;
+  font-family: 'Poppins';
+  font-size: 17px;
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+#navimg {
+  z-index: 1;
+}
+
+// .navbar-lewagon:before {
+//   height: 100%;
+//   width: 100%;
+
+//   filter: blur(1px);
+//   z-index: 2;
+//   content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+// }

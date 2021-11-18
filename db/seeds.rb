@@ -37,7 +37,6 @@ puts 'Creating 20 seaplane'
                   peninsula towards The Sound of Jura.","Capture a unique and sublime taste of the
                   Highlands and the West Coast on this magnificent flight.","Exploring the spectacular West Coast of Scotland by
                   seaplane is a breath-taking and awe inspiring experience that will never leave you."].sample,
-
     location:     ['Avon','Bedfordshire','Berkshire','Buckinghamshire','Cambridgeshire','Cheshire','Cleveland','Cornwall','Cumbria','Derbyshire','Devon','Dorset','Durham','East Sussex','Essex','Gloucestershire','Hampshire','Herefordshire',
                   'Hertfordshire','Isle of Wight','Kent','Lancashire','Leicestershire','Lincolnshire','London','Merseyside','Middlesex','Norfolk','Northamptonshire','Northumberland','North Humberside','North Yorkshire','Nottinghamshire',
                   'Oxfordshire','Rutland','Shropshire','Somerset','South Humberside','South Yorkshire','Staffordshire','Suffolk','Surrey','Tyne and Wear','Warwickshire','West Midlands','West Sussex','West Yorkshire','Wiltshire','Worcestershire',
