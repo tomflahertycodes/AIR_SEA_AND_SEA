@@ -13,13 +13,13 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark p-4 navbar-lewagon" id="navhome">
-      <%= link_to (image_tag("logo.png", alt:"AirSea&Sea", style:"width: 90px")), root_path%>
+      <%= link_to (image_tag("logo.png", alt:"AirSea&Sea", style:"width: 90px", id:"logo")), root_path%>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <li class="nav-item" id="navli">
             <%= link_to "Rent a Seaplane", seaplanes_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
