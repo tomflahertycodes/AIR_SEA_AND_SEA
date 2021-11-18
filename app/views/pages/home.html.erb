@@ -2,12 +2,21 @@
 
 <div class="form-container">
   <div class="row justify-content-center">
-    <div class="col-12 col-md-8">
-      <%= simple_form_for :search, url: pages_search_path, method: "GET" do |f| %>
-        <%= f.input :category, collection: @seaplane_category, placeholder: "seaplane category",label: false, class: "boxrounded" %>
-        <%= f.input :price, placeholder: "maximum price per day",label: false, class: "boxrounded" %>
-        <%= f.input :capacity, placeholder: "number of passengers", label: false, class: "boxrounded" %>
-        <%= f.submit "Search", class: "btn btn-ghost" %>
+    <div class="col-12 col-md-10">
+      <%= simple_form_for :search, url: pages_search_path, method: "GET",
+        wrapper: :inline_form,
+        html: { class: "row row-cols-lg-auto g-3 align-items-center justify-content-center m-3" },
+        wrapper_mappings: {
+        boolean: :inline_boolean
+      } do |f| %>
+        <div class="m-2"><%= f.input :category, collection: @seaplane_category, prompt: "seaplane category", label: false, class: "boxrounded" %></div>
+        <div class="m-2"><%= f.input :price, placeholder: "maximum price per day",label: false, class: "boxrounded" %></div>
+        <div class="m-2"><%= f.input :capacity, placeholder: "number of passengers", label: false, class: "boxrounded" %></div>
+      </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10">
+        <%= f.submit "Search", class: "btn btn-ghost mt-3" %>
       <% end %>
     </div>
   </div>
