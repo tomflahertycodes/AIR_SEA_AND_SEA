@@ -2,13 +2,16 @@ class SeaplanesController < ApplicationController
   before_action :find_seaplane, only: [:show, :edit, :update, :destroy]
 
   def index
-    @seaplanes = Seaplane.all
+    if params[:query].present?
+      @seaplanes = Seaplane.src_name_desc_location(params[:query])
+    else
+      @seaplanes = Seaplane.all
+    end
     @markers = @seaplanes.geocoded.map do |seaplane|
       {
         lat: seaplane.latitude,
         lng: seaplane.longitude
       }
-    end
   end
 
   def show

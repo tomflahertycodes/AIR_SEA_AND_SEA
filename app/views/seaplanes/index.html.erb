@@ -4,8 +4,23 @@
 
 <%# pending task on this file is to add cloudinary image tag at seaplane, at this stage we can just have a placeholder %>
 
+<div class="form-container">
+  <div class="row justify-content-center ">
+    <div class="col-12 col-md-8">
+      <%= form_tag seaplanes_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Write a name or location"
+        %>
+        <%= submit_tag "Search", class: "btn btn-ghost mt-5" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <div class="row justify-content-between mt-3" id="cardhome">
-<div style="width: 100%; height: 600px;"
+  <div style="width: 100%; height: 600px;"
   data-controller="mapbox"
   data-mapbox-markers-value="<%= @markers.to_json %>"
   data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY']%>"></div>
@@ -15,6 +30,8 @@
       <%= cl_image_tag seaplane.photo.key, class: "singleimg" %>
         <% end %>
         <div class="card-body">
+          <h5 class="card-title"><%= seaplane.name %></h5>
+
           <h6 class="card-subtitle mb-2 text-muted"><strong>£<%= seaplane.price %></strong> <%= seaplane.location %></h6><br>
           <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-user-friends"> <%= seaplane.capacity %></h6></i><br>
           <em class="card-text"><%= seaplane.description %></em><br><br>

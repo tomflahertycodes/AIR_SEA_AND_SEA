@@ -16,4 +16,11 @@ class Seaplane < ApplicationRecord
       { from: range[0], to: range[1] }
     end
   end
+
+  include PgSearch::Model
+    pg_search_scope :src_name_desc_location,
+      against: [:name, :description, :location],
+        using: {
+          tsearch: { prefix: true }
+        }
 end
