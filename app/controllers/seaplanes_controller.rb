@@ -2,7 +2,11 @@ class SeaplanesController < ApplicationController
   before_action :find_seaplane, only: [:show, :edit, :update, :destroy]
 
   def index
-    @seaplanes = Seaplane.all
+    if params[:query].present?
+      @seaplanes = Seaplane.src_name_desc_location(params[:query])
+    else
+      @seaplanes = Seaplane.all
+    end
   end
 
   def show
