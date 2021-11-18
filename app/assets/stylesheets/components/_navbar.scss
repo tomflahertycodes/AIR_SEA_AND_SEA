@@ -1,7 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(120, 120, 120, 0.4);
+  background: rgba(255, 246, 246, 0.3);
   font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 1px 0px 15px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,6 +13,11 @@
   color: white !important;
   font-family: 'Poppins';
   font-size: 17px;
+}
+
+.nav-link:hover {
+  color: black !important;
+  margin-bottom: 1px;
 }
 
 .navbar-lewagon .navbar-brand img {
