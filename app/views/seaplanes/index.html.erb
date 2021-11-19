@@ -1,8 +1,6 @@
-<img src="https://digitalsynopsis.com/wp-content/uploads/2017/07/beautiful-color-ui-gradients-backgrounds-sexy-blue.png" class="bg-image shadow-2-strong" id="bg" alt="an image of a seaplane">
+<%= image_tag("airseaplanejpg.jpg", class: "bg-image shadow-2-strong", id:"bg", alt: "an image of a seaplane") %>
 
 <h1 class="text-center text-white pt-5">Find your perfect seaplane today</h1>
-
-<%# pending task on this file is to add cloudinary image tag at seaplane, at this stage we can just have a placeholder %>
 
 <div class="form-container">
   <div class="row justify-content-center ">
@@ -31,7 +29,6 @@
         <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= seaplane.name %></h5>
-
           <h6 class="card-subtitle mb-2 text-muted"><strong>£<%= seaplane.price %></strong> <%= seaplane.location %></h6><br>
           <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-user-friends"> <%= seaplane.capacity %></h6></i><br>
           <em class="card-text"><%= seaplane.description %></em><br><br>
