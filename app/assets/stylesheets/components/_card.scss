@@ -66,3 +66,29 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+#img-show {
+  border-radius: 10px;
+  z-index: 1;
+  box-shadow: 1px 1px 10px grey;
+}
+
+#container-show {
+  background: linear-gradient(134.87deg, #52e5e7 -20%, #130cb7 109.89%);
+  color: #fff !important;
+  border-radius: 10px;
+}
+
+#btn-show {
+  background: linear-gradient(134.87deg, #52e5e7 -20%, #130cb7 109.89%);
+  transition: ease 0.3s;
+  opacity: 0.9;
+  border: none;
+}
+
+#btn-show:hover {
+  background: linear-gradient(134.87deg, #52e5e7 -30%, #130cb7 100.89%);
+  color: white;
+  opacity: 1;
+  padding: 10px 80px;
+}
