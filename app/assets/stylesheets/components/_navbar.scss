@@ -1,17 +1,29 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgb(0, 0, 0);
-  font-family:Arial, Helvetica, sans-serif;
-}
-
-#navhome {
-  opacity: 0.3;
+  background: rgba(255, 246, 246, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.nav-link {
+  color: black !important;
+  opacity: 0.7;
+  font-family: 'Poppins';
+  font-size: 17px;
+}
+
+.nav-link:hover {
+  color: black !important;
+  opacity: 1;
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#navimg {
+  z-index: 1;
 }

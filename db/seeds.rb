@@ -32,13 +32,17 @@ puts 'Creating 20 seaplane'
   seaplane = Seaplane.new(
     user_id: @userid,
     name:         Faker::FunnyName.name,
-    description:  "Enjoy a spectacular, unforgettable flight in an iconic,
-                  luxury seaplane with a first class window seat over one of
-                  the most spectacular landscapes in the World !",
-    location:     Faker::Address.city,
-    price:        rand(100..500),
+    description:  ["Enjoy a spectacular, unforgettable flight in an iconic,luxury seaplane with a first class window seat over one of
+                  the most spectacular landscapes in the World !","Fly west towards the Kyles of Bute and Loch Fyne - over the Kintyre
+                  peninsula towards The Sound of Jura.","Capture a unique and sublime taste of the
+                  Highlands and the West Coast on this magnificent flight.","Exploring the spectacular West Coast of Scotland by
+                  seaplane is a breath-taking and awe inspiring experience that will never leave you."].sample,
+    location:     ['Avon','Bedfordshire','Berkshire','Buckinghamshire','Cambridgeshire','Cheshire','Cleveland','Cornwall','Cumbria','Derbyshire','Devon','Dorset','Durham','East Sussex','Essex','Gloucestershire','Hampshire','Herefordshire',
+                  'Hertfordshire','Isle of Wight','Kent','Lancashire','Leicestershire','Lincolnshire','London','Merseyside','Middlesex','Norfolk','Northamptonshire','Northumberland','North Humberside','North Yorkshire','Nottinghamshire',
+                  'Oxfordshire','Rutland','Shropshire','Somerset','South Humberside','South Yorkshire','Staffordshire','Suffolk','Surrey','Tyne and Wear','Warwickshire','West Midlands','West Sussex','West Yorkshire','Wiltshire','Worcestershire',
+                  'Clwyd','Dyfed','Gwent','Gwynedd','Mid Glamorgan','Powys','South Glamorgan','West Glamorgan'].sample,
+    price:        rand(90..500),
     category:     ['Floatplane', 'Flying boat', 'Amphibious aircraft'].sample,
-    availability: ['Fly now!', 'Require specific license'].sample,
     capacity:     rand(1..3)
   )
   seaplane.save!
