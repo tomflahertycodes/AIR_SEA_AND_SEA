@@ -1,45 +1,48 @@
 <%= image_tag("airseaplanejpg.jpg", class: "bg-image shadow-2-strong", id:"bg", alt: "an image of a seaplane") %>
 
-<div class="container d-flex justify-content-between mt-5 mb-5">
+<div class="container d-flex justify-content-between mt-5 mb-2 py-4">
   <div class="row">
     <div class="col-6"></div>
       <% if @seaplane.photo.attached? %>
-        <%= cl_image_tag @seaplane.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @seaplane.photo.key, height: 300, width: 600, crop: :fill, id:"img-show" %>
       <% end %>
     </div>
     <% @booking = Booking.new %>
-    <div class="col-4 text-white" id='seaplane-booking-dates' data-unavailable="<%= @seaplane.unavailable_dates.to_json %>">
-      <h4>Book this seaplane!</h4>
+    <div class="col-4 text-center" id='seaplane-booking-dates' data-unavailable="<%= @seaplane.unavailable_dates.to_json %>">
+      <h4 class="pb-4">Book <strong><%= @seaplane.name %>!</strong></h4><strong>
       <%# if current_user.id != @seaplane.user_id  %>
         <%= simple_form_for([@seaplane, @booking]) do |f| %>
-            <%= f.input :start_date, as: :date, html5: true, class: "text-white" %>
-            <%= f.input :end_date, as: :date, html5: true, class: "text-white" %>
-            <%= f.submit "Book", class: "btn btn-ghost" %>
+            <%= f.input :start_date, as: :date, html5: true %>
+            <%= f.input :end_date, as: :date, html5: true %>
+            <%= f.submit "Book", class: "btn btn-ghost mt-3", id: "btn-show" %>
+
           <% end %>
       <%# end %>
     </div>
   </div>
-  <h1 class="text-white"><%= @seaplane.name %></h1>
 
-  <h3 class="text-white"><%= @seaplane.description %></h3>
+  <div class="container d-flex justify-content-between bg-white px-5 py-4 mb-5" id="container-show">
+    <div class="row">
+      <div class="col-12">
+        <h2><em><%= @seaplane.name %></em></h2><br>
+        <p><em>Category: <%= @seaplane.category %></em></p><br>
+        <h3><%= @seaplane.description %></h3><br>
+        <h4><i class="fas fa-map-marked pr-4 py-2">  <%= @seaplane.location %></i>
+          <i class="fas fa-pound-sign px-4">  <%= @seaplane.price %></i>
+          <i class="fas fa-user-friends px-4">  <%= @seaplane.capacity %></h4></i><br>
+        <h4>Reviews for <%= @seaplane.name %>:</h4>
+        <%# if @seaplane.bookings%>
+        <% @seaplane.bookings.each do |booking| %>
+          <% if booking.review %>
+            <p><% booking.review.rating.to_i.times do  %>
+              <i class="far fa-star"></i>
+            <% end %>
+            "<%= booking.review.comment %>"</li>
+          <% end %>
+        <% end %></p><br>
+        <%= link_to "back to all planes", seaplanes_path, class:"text-white" %>
+      </div>
+    </div>
+  </div>
 
-<p class="text-white"><em>Category: <%= @seaplane.category %></em></p>
-
-  <p class="text-white">You can find the plane at <%= @seaplane.location %></p>
-
-<p class="text-white">You can rent this plane for $<%= @seaplane.price %></p>
-
-  <p class="text-white">This plane can hold a maximum of <%= @seaplane.capacity %></p>
-
-  <h4 class="text-white">Reviews for <%= @seaplane.name %>:</h4>
-  <%# if @seaplane.bookings%>
-  <% @seaplane.bookings.each do |booking| %>
-    <% if booking.review %>
-      <p class="text-white"><% booking.review.rating.to_i.times do  %>
-        <i class="far fa-star"></i>
-    <% end %>
-      "<%= booking.review.comment %>"</li>
-    <% end %>
-  <% end %></p>
-  <%= link_to "back to all planes", seaplanes_path, class: "btn btn-ghost" %>
 </div>
