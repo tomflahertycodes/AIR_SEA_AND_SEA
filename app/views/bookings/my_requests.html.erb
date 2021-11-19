@@ -1,27 +1,37 @@
 <%= image_tag("airseaplanejpg.jpg", class: "bg-image shadow-2-strong", id:"bg", alt: "an image of a seaplane") %>
 
 <% if @active_requests.count > 0 %>
-  <h2>Requests for bookings</h2>
+  <h2 style="color: white;">Requests for bookings</h2>
 <% end %>
-<% @active_requests.each do |booking| %>
-  <div class="card-product">
-    <%= cl_image_tag booking.seaplane.photo.key %>
-    <div class="card-product-infos">
-      <h2><%= booking.user.user_name %> has requested to book <%= booking.seaplane.name %> from <%= booking.start_date.strftime('%d/%m/%Y') %> until <%= booking.end_date.strftime('%d/%m/%Y') %></p>
-      <%= link_to 'Approve', approve_booking_path(booking), method: :patch, class: "btn btn-primary" %>
-      <%= link_to 'Reject', reject_booking_path(booking), method: :patch, class: "btn btn-danger" %>
+<div class="cards">
+  <% @active_requests.each do |booking| %>
+    <div class="booking-card">
+      <%= cl_image_tag booking.seaplane.photo.key %>
+      <div class="booking-card-info d-flex flex-column justify-content-between">
+        <div class="row">
+          <div class="booking-text">
+            <p><%= booking.user.user_name %> has requested to book <%= booking.seaplane.name %> from <%= booking.start_date.strftime('%d/%m/%Y') %> until <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+          </div>
+          <div class="buttons">
+            <%= link_to 'Approve', approve_booking_path(booking), method: :patch, class: "btn btn-info" %>
+            <%= link_to 'Reject', reject_booking_path(booking), method: :patch, class: "btn btn-warning" %>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <% if @upcoming_bookings.count > 0 %>
-  <h2>Upcoming bookings</h2>
+  <h2 style="color: white;">Upcoming bookings</h2>
 <% end %>
-<% @upcoming_bookings.each do |booking| %>
-  <div class="card-product">
-    <%= cl_image_tag booking.seaplane.photo.key %>
-    <div class="card-product-infos">
-      <h2><%= booking.user.user_name %> is due to take <%= booking.seaplane.name %> from <%= booking.start_date.strftime('%d/%m/%Y') %> until <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+  <div class="cards">
+  <% @upcoming_bookings.each do |booking| %>
+    <div class="booking-card">
+      <%= cl_image_tag booking.seaplane.photo.key %>
+      <div class="booking-card-info">
+        <p><%= booking.user.user_name %> is due to take <%= booking.seaplane.name %> from <%= booking.start_date.strftime('%d/%m/%Y') %> until <%= booking.end_date.strftime('%d/%m/%Y') %></p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
