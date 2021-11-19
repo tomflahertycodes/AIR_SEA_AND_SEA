@@ -55,7 +55,7 @@
     <div class="booking-card col-12">
       <%= cl_image_tag booking.seaplane.photo.key %>
       <div class="booking-card-info d-flex flex-column justify-content-between">
-        <h2><<%= link_to "#{booking.seaplane.name}", seaplane_path(booking.seaplane) %> (<%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %>)</h2>
+        <h2><%= link_to "#{booking.seaplane.name}", seaplane_path(booking.seaplane) %> (<%= booking.start_date.strftime('%d/%m/%Y') %> - <%= booking.end_date.strftime('%d/%m/%Y') %>)</h2>
         <% if booking.review %>
           <p>You gave <%= booking.seaplane.name %> <%= booking.review.rating %> stars </p>
         <% else %>
