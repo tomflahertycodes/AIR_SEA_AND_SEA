@@ -1,0 +1,12 @@
+.mapboxgl-popup {
+  max-width: 250px;
+  border-radius: 20px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  h2 {
+    text-decoration: none;
+  }
+}

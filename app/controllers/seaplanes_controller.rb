@@ -10,7 +10,9 @@ class SeaplanesController < ApplicationController
     @markers = @seaplanes.geocoded.map do |seaplane|
       {
         lat: seaplane.latitude,
-        lng: seaplane.longitude
+        lng: seaplane.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { seaplane: seaplane }),
+        image_url: helpers.asset_url("logo.png")
       }
     end
   end
