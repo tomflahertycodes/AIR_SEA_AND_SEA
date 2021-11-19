@@ -36,7 +36,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><strong>£<%= seaplane.price %></strong> <%= seaplane.location %></h6><br>
           <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-user-friends"> <%= seaplane.capacity %></h6></i><br>
           <em class="card-text"><%= seaplane.description %></em><br><br>
-          <%= link_to "view details", seaplane_path(seaplane), class: "btn btn-outline-success btn-sm" %>
+          <%= link_to "view details", seaplane_path(seaplane),  class: "btn btn-ghost mt-3", id: "btn-index" %>
         </div>
       </div>
     <% end %>
